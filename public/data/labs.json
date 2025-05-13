@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "name": "Scratch",
+        "trials": [
+            {
+                "id": 1,
+                "name": "Scratch",
+                "description": "This is the first lab."
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Python"
+    },
+    {
+        "id": 3,
+        "name": "JavaScript"
+    }
+]

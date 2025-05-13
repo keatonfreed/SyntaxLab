@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "SyntaxFlow", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  --color-background: hsl(246, 20%, 11%);
+  --color-background-light: hsl(233, 18%, 17%);
+  --color-primary: hsl(271, 74%, 62%);
+  --color-primary-dark: hsl(271, 46%, 32%);
+  --color-accent: hsl(149, 100%, 62%);
+  --color-accent-dark: hsl(149, 56%, 37%);
+  --color-warning: hsl(356, 89%, 55%);
+  --color-warning-dark: hsl(356, 73%, 30%);
+
+  --color-border: hsl(233, 13%, 27%);
+  --color-border-select: var(--color-primary);
+
+  --color-code: hsl(236, 35%, 7%);
+  --color-code-light: hsl(229, 26%, 13%);
+}
+
+@font-face {
+  font-family: "SyntaxFlow";
+  src: url("assets/fonts/DIN_Next_Rounded.ttf")format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    color-scheme: dark;
+    font-family: var(--font-display);
+    font-size: 16px;
+    line-height: 1.5;
+
+    /* color: white; */
+
+  }
+
+  img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input, button, textarea, select {
+    font: inherit;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* Basic CSS Reset */
