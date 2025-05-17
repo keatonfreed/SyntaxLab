@@ -5,8 +5,33 @@
         "trials": [
             {
                 "id": 1,
-                "name": "Scratch",
-                "description": "This is the first lab."
+                "name": "Sprites",
+                "description": "Learn to utilize sprites in Scratch."
+            },
+            {
+                "id": 2,
+                "name": "Scripts",
+                "description": "Create scripts to control sprite behavior."
+            },
+            {
+                "id": 3,
+                "name": "Backdrops",
+                "description": "Change backdrops to enhance the visual experience."
+            },
+            {
+                "id": 4,
+                "name": "Sounds",
+                "description": "Add sounds to your Scratch projects."
+            },
+            {
+                "id": 5,
+                "name": "Variables",
+                "description": "Use variables to store and manipulate data."
+            },
+            {
+                "id": 6,
+                "name": "Events",
+                "description": "Learn about event-driven programming in Scratch."
             }
         ]
     },
