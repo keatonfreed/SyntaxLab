@@ -187,19 +187,19 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "/* overridden by src/lib/themes/guiHelpers.js */\n\n* {\n    box-sizing: border-box;\n}\n\nbody {\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n    background: var(--page-background);\n    color: var(--page-foreground);\n}\n\na {\n    color: var(--link-color);\n}\n\n.credits_main_1Rb15 section {\n    max-width: 900px;\n    margin: auto;\n    margin-bottom: 30px;\n}\n\n.credits_header-container_10IXn {\n    color: white;\n    background-color: var(--looks-secondary);\n    padding: 20px 0;\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.credits_header-text_2vWAl {\n\n}\n\n.credits_users_2AuwB {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n}\n\n.credits_user-image_2rw9X {\n    margin-right: 12px;\n}\n\n.credits_user_2nYLS {\n    display: flex;\n    align-items: center;\n    width: 300px;\n    padding: 4px;\n    border-radius: 4px;\n    font-size: 1.25rem;\n    color: inherit !important;\n    text-decoration: none;\n    transition: background .2s;\n}\n\n.credits_user_2nYLS:link:hover {\n    background: var(--ui-black-transparent);\n}\n", ""]);
+exports.push([module.i, "/* overridden by src/lib/themes/guiHelpers.js */\n\n* {\n    box-sizing: border-box;\n}\n\nbody {\n    font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;\n    margin: 0;\n    padding: 0;\n    background: var(--page-background);\n    color: var(--page-foreground);\n}\n\na {\n    color: var(--link-color);\n}\n\n.credits_main_3LZ_8 section {\n    max-width: 900px;\n    margin: auto;\n    margin-bottom: 30px;\n}\n\n.credits_header-container_Vx3wA {\n    color: white;\n    background-color: var(--looks-secondary);\n    padding: 20px 0;\n    text-align: center;\n    margin-bottom: 30px;\n}\n\n.credits_header-text_1KkFs {\n\n}\n\n.credits_users_3H8Bg {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n}\n\n.credits_user-image_3BJ_h {\n    margin-right: 12px;\n}\n\n.credits_user_Hnnpd {\n    display: flex;\n    align-items: center;\n    width: 300px;\n    padding: 4px;\n    border-radius: 4px;\n    font-size: 1.25rem;\n    color: inherit !important;\n    text-decoration: none;\n    transition: background .2s;\n}\n\n.credits_user_Hnnpd:link:hover {\n    background: var(--ui-black-transparent);\n}\n", ""]);
 
 // exports
 exports.locals = {
-	"main": "credits_main_1Rb15",
-	"header-container": "credits_header-container_10IXn",
-	"headerContainer": "credits_header-container_10IXn",
-	"header-text": "credits_header-text_2vWAl",
-	"headerText": "credits_header-text_2vWAl",
-	"users": "credits_users_2AuwB",
-	"user-image": "credits_user-image_2rw9X",
-	"userImage": "credits_user-image_2rw9X",
-	"user": "credits_user_2nYLS"
+	"main": "credits_main_3LZ_8",
+	"header-container": "credits_header-container_Vx3wA",
+	"headerContainer": "credits_header-container_Vx3wA",
+	"header-text": "credits_header-text_1KkFs",
+	"headerText": "credits_header-text_1KkFs",
+	"users": "credits_users_3H8Bg",
+	"user-image": "credits_user-image_3BJ_h",
+	"userImage": "credits_user-image_3BJ_h",
+	"user": "credits_user_Hnnpd"
 };
 
 /***/ }),
@@ -1367,7 +1367,6 @@ var STORAGE_KEY = 'tw:theme';
  * @returns {Theme} detected theme
  */
 var systemPreferencesTheme = function systemPreferencesTheme() {
-  return ___WEBPACK_IMPORTED_MODULE_0__["Theme"].light;
   if (PREFERS_HIGH_CONTRAST_QUERY && PREFERS_HIGH_CONTRAST_QUERY.matches) {
     return ___WEBPACK_IMPORTED_MODULE_0__["Theme"].highContrast;
   }
@@ -1399,6 +1398,7 @@ var onSystemPreferenceChange = function onSystemPreferenceChange(onChange) {
  * @returns {Theme} the theme
  */
 var detectTheme = function detectTheme() {
+  return ___WEBPACK_IMPORTED_MODULE_0__["Theme"].dark;
   var systemPreferences = systemPreferencesTheme();
   try {
     var local = localStorage.getItem(STORAGE_KEY);

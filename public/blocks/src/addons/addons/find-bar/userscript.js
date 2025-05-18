@@ -2,6 +2,10 @@ import BlockItem from "./blockly/BlockItem.js";
 import BlockInstance from "./blockly/BlockInstance.js";
 import Utils from "./blockly/Utils.js";
 
+let kShowFindBar = false;
+
+
+
 export default async function ({ addon, msg, console }) {
   const Blockly = await addon.tab.traps.getBlockly();
 
@@ -33,6 +37,7 @@ export default async function ({ addon, msg, console }) {
       this.findWrapper = this.findBarOuter.appendChild(document.createElement("span"));
       this.findWrapper.className = "sa-find-wrapper";
 
+
       this.dropdownOut = this.findWrapper.appendChild(document.createElement("label"));
       this.dropdownOut.className = "sa-find-dropdown-out";
 
@@ -50,6 +55,17 @@ export default async function ({ addon, msg, console }) {
 
       this.bindEvents();
       this.tabChanged();
+
+      window.addEventListener("kCustomize", (e) => {
+        const { detail } = e;
+        if (detail && typeof detail.showFindBar === "boolean") {
+          kShowFindBar = detail.showFindBar;
+          this.findBarOuter.style.display = kShowFindBar ? "flex" : "none";
+        }
+      });
+
+      this.findBarOuter.style.display = kShowFindBar ? "flex" : "none";
+
     }
 
     bindEvents() {
@@ -65,7 +81,13 @@ export default async function ({ addon, msg, console }) {
       }
       const tab = addon.tab.redux.state.scratchGui.editorTab.activeTabIndex;
       const visible = tab === 0 || tab === 1 || tab === 2;
-      this.findBarOuter.hidden = !visible;
+
+      if (!kShowFindBar) {
+        this.findBarOuter.style.display = "none";
+      } else {
+        this.findBarOuter.style.display = visible ? "flex" : "none";
+      }
+
     }
 
     inputChange() {

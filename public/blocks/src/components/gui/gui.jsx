@@ -179,6 +179,24 @@ const GUIComponent = props => {
         FIXED_WIDTH +
         Math.max(0, customStageSize.width - FIXED_WIDTH)
     );
+
+
+    let kShowMenuBar = false;
+
+    let kShowCodeTab = true;
+
+    let kCodeTabs = [];
+
+    let kShowCostumesTab = false;
+    let kShowSoundsTab = false;
+
+    let kShowExtensionButton = false;
+
+    let kShowBackpack = false;
+
+    let kShowFindBar = false;
+
+
     return (<MediaQuery minWidth={unconstrainedWidth}>{isUnconstrained => {
         const stageSize = resolveStageSize(stageSizeMode, isUnconstrained);
 
@@ -286,7 +304,7 @@ const GUIComponent = props => {
                         onRequestClose={onRequestCloseBackdropLibrary}
                     />
                 ) : null}
-                {/* <MenuBar
+                {kShowMenuBar && <MenuBar
                     accountNavOpen={accountNavOpen}
                     authorId={authorId}
                     authorThumbnailUrl={authorThumbnailUrl}
@@ -324,7 +342,7 @@ const GUIComponent = props => {
                     onShare={onShare}
                     onStartSelectingFileUpload={onStartSelectingFileUpload}
                     onToggleLoginOpen={onToggleLoginOpen}
-                /> */}
+                />}
                 <Box className={styles.bodyWrapper}>
                     <Box className={styles.flexWrapper}>
                         <Box className={styles.editorWrapper}>
@@ -337,7 +355,7 @@ const GUIComponent = props => {
                                 onSelect={onActivateTab}
                             >
                                 <TabList className={tabClassNames.tabList}>
-                                    <Tab className={tabClassNames.tab}>
+                                    {kShowCodeTab && <Tab className={tabClassNames.tab}>
                                         <img
                                             draggable={false}
                                             src={codeIcon()}
@@ -347,8 +365,8 @@ const GUIComponent = props => {
                                             description="Button to get to the code panel"
                                             id="gui.gui.codeTab"
                                         />
-                                    </Tab>
-                                    <Tab
+                                    </Tab>}
+                                    {kShowCostumesTab && <Tab
                                         className={tabClassNames.tab}
                                         onClick={onActivateCostumesTab}
                                     >
@@ -369,8 +387,8 @@ const GUIComponent = props => {
                                                 id="gui.gui.costumesTab"
                                             />
                                         )}
-                                    </Tab>
-                                    <Tab
+                                    </Tab>}
+                                    {kShowSoundsTab && <Tab
                                         className={tabClassNames.tab}
                                         onClick={onActivateSoundsTab}
                                     >
@@ -383,7 +401,7 @@ const GUIComponent = props => {
                                             description="Button to get to the sounds panel"
                                             id="gui.gui.soundsTab"
                                         />
-                                    </Tab>
+                                    </Tab>}
                                 </TabList>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     <Box className={styles.blocksWrapper}>
@@ -399,9 +417,12 @@ const GUIComponent = props => {
                                             onOpenCustomExtensionModal={onOpenCustomExtensionModal}
                                             theme={theme}
                                             vm={vm}
+                                            style={{
+                                                height: kShowExtensionButton ? '100% !important' : 'calc(100% - 3.25rem) !important',
+                                            }}
                                         />
                                     </Box>
-                                    <Box className={styles.extensionButtonContainer}>
+                                    {kShowExtensionButton && <Box className={styles.extensionButtonContainer}>
                                         <button
                                             className={styles.extensionButton}
                                             title={intl.formatMessage(messages.addExtension)}
@@ -413,7 +434,7 @@ const GUIComponent = props => {
                                                 src={addExtensionIcon}
                                             />
                                         </button>
-                                    </Box>
+                                    </Box>}
                                     <Box className={styles.watermark}>
                                         <Watermark />
                                     </Box>
@@ -427,7 +448,7 @@ const GUIComponent = props => {
                                     {soundsTabVisible ? <SoundTab vm={vm} /> : null}
                                 </TabPanel>
                             </Tabs>
-                            {backpackVisible ? (
+                            {kShowBackpack && backpackVisible ? (
                                 <Backpack host={backpackHost} />
                             ) : null}
                         </Box>
