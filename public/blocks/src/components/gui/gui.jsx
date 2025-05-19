@@ -355,7 +355,7 @@ const GUIComponent = props => {
                                 onSelect={onActivateTab}
                             >
                                 <TabList className={tabClassNames.tabList}>
-                                    {kShowCodeTab && <Tab className={tabClassNames.tab}>
+                                    <Tab className={tabClassNames.tab} style={{ "display": kShowCodeTab ? "flex" : "none" }}>
                                         <img
                                             draggable={false}
                                             src={codeIcon()}
@@ -365,9 +365,10 @@ const GUIComponent = props => {
                                             description="Button to get to the code panel"
                                             id="gui.gui.codeTab"
                                         />
-                                    </Tab>}
-                                    {kShowCostumesTab && <Tab
+                                    </Tab>
+                                    <Tab
                                         className={tabClassNames.tab}
+                                        style={{ "display": kShowCostumesTab ? "flex" : "none" }}
                                         onClick={onActivateCostumesTab}
                                     >
                                         <img
@@ -387,9 +388,10 @@ const GUIComponent = props => {
                                                 id="gui.gui.costumesTab"
                                             />
                                         )}
-                                    </Tab>}
-                                    {kShowSoundsTab && <Tab
+                                    </Tab>
+                                    <Tab
                                         className={tabClassNames.tab}
+                                        style={{ "display": kShowSoundsTab ? "flex" : "none" }}
                                         onClick={onActivateSoundsTab}
                                     >
                                         <img
@@ -401,7 +403,7 @@ const GUIComponent = props => {
                                             description="Button to get to the sounds panel"
                                             id="gui.gui.soundsTab"
                                         />
-                                    </Tab>}
+                                    </Tab>
                                 </TabList>
                                 <TabPanel className={tabClassNames.tabPanel}>
                                     <Box className={styles.blocksWrapper}>
